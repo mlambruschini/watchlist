@@ -8,7 +8,7 @@
    <body>
       <div class = "container">
  		<nav class = "navbar navbar-expand-sm navbar-dark bg-secondary">
-            <a class = "navbar-brand" href = "homepage-static.html">Watchlist App</a>
+            <a class = "navbar-brand" href = "home">Watchlist App</a>
             <button class = "navbar-toggler" type = "button" data-toggle = "collapse" 
                data-target = "#navbarSupportedContent" 
                aria-controls = "navbarSupportedContent" aria-expanded = "false" 
@@ -26,28 +26,28 @@
                      <a class = "nav-link" href = "watchlist">Watchlist</a>
                   </li>
                   <li class = "nav-item active">
-                     <a class = "nav-link" href = "watchlistitemform">Submit an item</a>
+                     <a class = "nav-link" href = "watchlistItemForm">Submit an item</a>
                   </li>
                </ul>
                
             </div>
       	</nav>         
-         <form action="#" method="post" th:action="@{/watchlistitemform}" th:object="${watchListItem}">
+         <form action="#" method="post" th:action="@{/watchlistItemForm}" th:object="${watchlistItem}">
             <h2 class = "mt-4">Submit an item</h2>
             <hr/>
             <!-- Form levels error messages here -->
             <div class = "form-group row ">
                <div class="col-sm-8">
-        			<span class="text-danger" > </span>      
+        			<span class="text-danger" th:errors="*{global}"> </span>
       			</div>
             </div>
             <div class = "form-group row ">
                <label for = "title" class = "col-sm-2 col-form-label">Title</label>
                <div class = "col-sm-4">
-                  <input  th:field="*{title}" type = "text" class = "form-control" placeholder = "Mandatory">
+                  <input th:field="*{title}" type = "text" class = "form-control" placeholder = "Mandatory">
                </div>
                <div class="col-sm-4">
-        			<span class="text-danger"> </span>      
+        			<span class="text-danger" th:errors="*{title}"> </span>
       			</div>
             </div>
             
@@ -57,7 +57,7 @@
                   <input th:field="*{rating}" type = "text" class = "form-control" placeholder = "5.0 < Number < 10.0">
                </div>
                <div class="col-sm-4">
-        			<span class="text-danger"> </span>      
+        			<span class="text-danger" th:errors="*{rating}"> </span>
       			</div>
             </div>
                
@@ -67,7 +67,7 @@
                   <input th:field="*{priority}" type = "text" class = "form-control" placeholder = "Low|Medium|High">
                </div>
                <div class="col-sm-4">
-        			<span class="text-danger"> </span>      
+        			<span class="text-danger" th:errors="*{priority}"> </span>
       			</div>
             </div>
                
@@ -77,7 +77,7 @@
                		<textarea th:field="*{comment}" class = "form-control" rows = "3" placeholder = "Max. 50 chars"></textarea>
                </div>
                <div class="col-sm-4">
-        			<span class="text-danger"> </span>      
+        			<span class="text-danger" th:errors="*{comment}"> </span>
       			</div>
             </div>
             

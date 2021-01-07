@@ -1,10 +1,27 @@
-package com.openclassrooms.watchlist;
+package com.openclassrooms.watchlist.domain;
 
+import com.openclassrooms.watchlist.validation.GoodMovie;
+import com.openclassrooms.watchlist.validation.Priority;
+import com.openclassrooms.watchlist.validation.Rating;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@GoodMovie
 public class WatchlistItem {
+
+    @NotBlank(message="Please enter the title")
     private String title;
+
+    @Rating
     private String rating;
+
+    @Priority
     private String priority;
+
+    @Size(max=50, message="Comment should be maximum 50 characters")
     private String comment;
+
     private Integer id;
 
     public WatchlistItem(String title, String rating, String priority, String comment, Integer id) {
